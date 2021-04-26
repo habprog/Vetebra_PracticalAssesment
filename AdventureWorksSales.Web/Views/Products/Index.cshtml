@@ -1,0 +1,38 @@
+﻿@model IEnumerable<AdventureWorksSales.Web.Models.Product>
+
+@{
+    ViewBag.Title = "List Products";
+}
+    <h2 class="my-15 text-center">Product List</h2>
+    <table class="table table-responsive table-bordered my-10">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListPrice)
+            </th>
+        </tr>
+
+        @{ var k = 0; }
+        @foreach (var item in Model)
+        {
+            k++;
+            <tr>
+
+                <td>
+                    @k
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ListPrice)
+                </td>
+            </tr>
+        }
+
+    </table>

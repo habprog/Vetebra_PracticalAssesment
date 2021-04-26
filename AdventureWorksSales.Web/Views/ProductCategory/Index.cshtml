@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AdventureWorksSales.Web.Models.productCategory>
+
+@{
+    ViewBag.Title = "List Product Categories";
+}
+
+<h2>Product Category List</h2>
+<p style="margin-top:20px;">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+    @{ var k = 0; }
+    @foreach (var item in Model)
+    {
+        k++;
+        <tr>
+            <td>
+                @k
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.rowguid }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.rowguid })
+            </td>
+        </tr>
+    }
+
+</table>
